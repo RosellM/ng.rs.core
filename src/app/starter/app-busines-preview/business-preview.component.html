@@ -16,13 +16,23 @@
       <!-- /.col -->
       <div class="col-sm-4 border-right">
         <div class="description-block">
-          <span class="description-text">Ver informacion</span>
+          <span class="description-text">
+
+              <a [routerLink]="['detail/',business.name,business._id]">
+                Ver detalles
+              </a>
+
+          </span>
         </div>
         <!-- /.description-block -->
       </div>
       <div class="col-sm-4 border-right">
           <div class="description-block">
-            <span class="description-text">Visualizar sitio</span>
+            <span class="description-text">
+                <a [routerLink]="['/products']" [queryParams]="{ order: 'popular'}">
+                  Visualizar sitio
+                </a>            
+            </span>
           </div>
           <!-- /.description-block -->
         </div>

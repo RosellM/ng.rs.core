@@ -5,14 +5,24 @@ import { AdminComponent } from './../admin/admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BusinessDetailComponent } from '../starter/app-business-detail/business-detail.component';
+import { BusinessListComponent } from '../starter/app-business-list-container/business-list.component';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      { path: '', redirectTo: 'starter', pathMatch: 'full' },
-      { path: 'starter', component: StarterComponent },
-      { path: 'misnegocios/todos', component: StarterComponent },
-      { path: 'misnegocios/nuevo', component: StarterComponent },
+      { path: '', redirectTo: 'minegocio', pathMatch: 'full' },
+      { 
+        path: 'minegocio',
+        component: StarterComponent,
+        children :
+        [
+          { path: '', component: BusinessListComponent },
+          { path: 'all', component: StarterComponent },
+          { path: 'new', component: StarterComponent },
+          { path: 'detail/:name/:id', component: BusinessDetailComponent }
+        ]  
+      },
     ])
   ],
   declarations: [],

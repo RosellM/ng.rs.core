@@ -1,3 +1,88 @@
-<p>
-  business-detail works!
-</p>
+<div class="box box-default">
+  <div class="box-header with-border">
+    <h3 class="box-title">Datos generales</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.box-tools -->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body" style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">                 
+                  <form [formGroup]="businessForm" class="form-horizontal"> 
+                    <div class="form-group">
+                      <label>Nombre del negocio</label>
+                      <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.errors.required"> Name is required</div>
+                      </div>
+                    </div>    
+                    <div class="form-group">
+                      <label>Descripcion</label>
+                      <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.description.required"> Description is required</div>
+                      </div>
+                    </div>                 
+                  </form>
+
+                </div>
+            </div>
+        </div>
+  
+  </div>
+  <!-- /.box-body -->
+</div>
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="box-title">Informacion de contacto</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.box-tools -->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body" style="">
+    The body of the box
+  </div>
+  <!-- /.box-body -->
+</div>
+
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Etiquetas</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.box-tools -->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body" style="">
+    The body of the box
+  </div>
+  <!-- /.box-body -->
+</div>
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">Albumns</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.box-tools -->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body" style="">
+    The body of the box
+  </div>
+  <!-- /.box-body -->
+</div>

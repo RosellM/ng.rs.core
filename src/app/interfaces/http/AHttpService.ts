@@ -4,12 +4,12 @@ export abstract class AHttpService {
 
     abstract list() : any;
 
-    abstract create() : any;
+    abstract create(business : any) : any;
 
-    abstract update(): any;
+    abstract update(business: any): any;
 
-    abstract getById() : any;
+    abstract getById(id : string) : any;
 
-    abstract delete() : any;
+    abstract delete( id : string) : any;
 
 }

@@ -20,7 +20,6 @@ export class BusinessListComponent implements OnInit {
     this.businessSimpleDtoList = new Array<BusinessSimpleDTO>();
     this.businessSectionChunkList = new Array<BusinessSectionChunk>();  
     this.businessSimpleDtoListChunked = Array<BusinessSimpleDTO>();
-    
    }
     
   ngOnInit() 
@@ -47,7 +46,7 @@ export class BusinessListComponent implements OnInit {
             console.log(business.data);
             business.data.forEach((business, iterator)=> {
               {
-                this.businessSimpleDtoListChunked.push( new BusinessSimpleDTO(business.name, business.description));
+                this.businessSimpleDtoListChunked.push( new BusinessSimpleDTO(business.name, business.description, business._id));
                 valueForChunk = iterator;
                 console.log(valueForNextChunk);
                 if(valueForNextChunk >= this.numBusiness && valueForChunk == this.numBusiness - 1)

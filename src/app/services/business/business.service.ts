@@ -24,16 +24,20 @@ export class BusinessService implements AHttpService {
     return this.http.get<BusinessResponseDTO>( this.url, { headers : headers} );
   }
 
-  create() : Observable<BusinessSimpleDTO> {
+  create(business : any) : Observable<BusinessSimpleDTO> {
     throw new Error("Method not implemented.");
   }
-  update() : Observable<any> {
+  update(business : any) : Observable<any> {
     throw new Error("Method not implemented.");
   }
-  getById() : Observable<BusinessSimpleDTO> {
-    throw new Error("Method not implemented.");
+  getById(id : string) : Observable<BusinessResponseDTO> {
+    this.url = `${this.config.base_url}/bussines/detail/${id}/ALL`;
+    let headers = new HttpHeaders();
+    headers =  headers.set( 'Authorization', this.config.token).set('Content-Type','application/json');
+    return this.http.get<BusinessResponseDTO>( this.url, { headers : headers} );
+  
   }
-  delete() : boolean {
+  delete(id : string) : boolean {
     throw new Error("Method not implemented.");
   }
 

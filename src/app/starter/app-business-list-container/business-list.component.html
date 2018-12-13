@@ -1,40 +1,34 @@
-<ng-container *ngIf = "businessSectionChunkList">
-        <div class="container" *ngFor="let sectionsByRows of businessSectionChunkList ">   
-            <div class="row" *ngIf="sectionsByRows.totalBusiness==3">
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
-                    </div>
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[1]'></app-business-preview>
-                    </div>
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[2]'></app-business-preview>
-                    </div>
+<ng-container *ngIf="businessSectionChunkList">
+    <div class="container" *ngFor="let sectionsByRows of businessSectionChunkList ">
+        <div class="row" *ngIf="sectionsByRows.totalBusiness==3">
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
             </div>
-            <div class="row" *ngIf="sectionsByRows.totalBusiness==2">
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
-                    </div>
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[1]'></app-business-preview>
-                    </div>
-                    <div class="col-md-4">
-                       
-                    </div>
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[1]'></app-business-preview>
             </div>
-            <div class="row" *ngIf="sectionsByRows.totalBusiness==1">
-                    <div class="col-md-4">
-                        <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
-                    </div>
-                    <div class="col-md-4">
-                        
-                    </div>
-                    <div class="col-md-4">
-                       
-                    </div>
-            </div>     
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[2]'></app-business-preview>
+            </div>
         </div>
+        <div class="row" *ngIf="sectionsByRows.totalBusiness==2">
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
+            </div>
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[1]'></app-business-preview>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row" *ngIf="sectionsByRows.totalBusiness==1">
+            <div class="col-md-4">
+                <app-business-preview [business]='sectionsByRows.business[0]'></app-business-preview>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
 </ng-container>
-
-
-
