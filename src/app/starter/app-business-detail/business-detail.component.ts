@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import {ReactiveFormsModule, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
+import { ReactiveFormsModule, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 import { BusinessService } from '../../services/business/business.service';
 import { DataSharedService } from '../../services/shared/data-shared.service';
@@ -8,6 +8,7 @@ import { Config } from '../../settings/config';
 import { SettingsService } from '../../services/settings/settings.service';
 import { SettingsDTO } from '../../models/settings/settingsResponseDTO';
 import { BusinessSimpleDTO } from '../../models/business/businessSimpleDTO';
+import { ContactDTO } from '../../models/contact/contact';
 @Component({
   selector: 'app-business-detail',
   templateUrl: './business-detail.component.html',
@@ -18,21 +19,22 @@ export class BusinessDetailComponent implements OnInit {
   private businessId: string;
   config: Config;
   settings: SettingsDTO;
+  contactAreas : Array<ContactDTO>;
   componentTitleLabel: string;
-  businessForm : FormGroup;
+  businessForm: FormGroup;
   submitted = false;
   constructor(
     private route: ActivatedRoute,
     private businessService: BusinessService,
     private settingsService: SettingsService,
     private dataSharedService: DataSharedService,
-    private formBuider : FormBuilder
+    private formBuider: FormBuilder
   ) {
     this.config = new Config();
-
+    this.contactAreas = new Array<ContactDTO>();
     this.businessForm = this.formBuider.group({
       name: ['', Validators.required],
-      description: ['',Validators.required]
+      description: ['', Validators.required]
     });
 
   }
@@ -43,7 +45,10 @@ export class BusinessDetailComponent implements OnInit {
     console.log(this.businessId);
     this.businessService.getById(this.businessId).subscribe(
       (business) => {
-          this.updateValuesBusinessForm(business.data);
+        
+        this.updateValuesBusinessForm(business.data);
+        this.parseContactAreas(business.data.ContactArea);
+        console.log(this.contactAreas);
       },
       (error) => {
         console.log(error);
@@ -72,11 +77,18 @@ export class BusinessDetailComponent implements OnInit {
    * 
    * @param business Actualiza campos de formulario con informacion actual
    */
-  private updateValuesBusinessForm(business : BusinessSimpleDTO)
-  {
+  private updateValuesBusinessForm(business: BusinessSimpleDTO) {
     this.businessForm.patchValue({
-      name:  business.name,
-      description : business.description
+      name: business.name,
+      description: business.description
     });
+  }
+
+  private parseContactAreas(contactAreas : ContactDTO[])
+  {
+    contactAreas.forEach(element => {
+      this.contactAreas.push(element);
+    });
+
   }
 }

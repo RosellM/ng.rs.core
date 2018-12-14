@@ -15,6 +15,7 @@ import { BusinessPreviewComponent } from './starter/app-busines-preview/business
 import { BusinessListComponent } from './starter/app-business-list-container/business-list.component';
 import { BusinessDetailComponent } from './starter/app-business-detail/business-detail.component';
 import { DataSharedService } from './services/shared/data-shared.service';
+import { AppContactPreviewComponent } from './starter/app-contact-preview/app-contact-preview.component';
 
 
 
@@ -28,7 +29,8 @@ import { DataSharedService } from './services/shared/data-shared.service';
     StarterFooterComponent,
     BusinessPreviewComponent,
     BusinessListComponent,
-    BusinessDetailComponent
+    BusinessDetailComponent,
+    AppContactPreviewComponent
   ],
   imports: [
     BrowserModule,
